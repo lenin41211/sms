@@ -1,0 +1,51 @@
+<html>
+<meta charset="utf-8">
+<head>
+<title>Student Management System</title>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+</style>
+
+</head>
+<body>
+    <div class="container" align="center">
+    <h1>Student Management System</h1>
+    
+   <form>
+    <label for="rno"><b>Rollno&emsp;</b></label><input type="text" name="rno" id="rno" placeholder="example : 1405205"/>
+    <input type="button" onclick="search()" value="submit"><br>
+    </form>
+    </div>
+
+<script language= "javascript" type="text/javascript" src="stu.js">
+ 
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<html>
+<meta charset="utf-8">
+<head>
+<title>Student Management System</title>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+table{
+    border: 1px solid black;
+}
+table tr{ /* You could use just `tr{` here (leave out `table `), I just prefer this */
+    background-color: #c0c0c0;
+}
+table tr td{ /* Same here, for `td{` */
+    font-family:helvetica;
+    font-weight:bold;
+    text-align: center;
+}
+.large{
+    width: 100px;
+}
+.small{
+    width: 80px;
+}
+</style>
+
+</head>
+<body>
+    <div class="container" align="center">
+    <h1>Student Management System</h1>
+    
+   <form>
+    <label for="rno"><b>Rollno&emsp;</b></label><input type="text" name="rno" id="rno" placeholder="example : 123"/>
+    <br>&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="add()">Submit</button><br>
+    </form>
+    </div>
+
+<script language= "javascript" type="text/javascript" src="stu.js">
+ 
+// called when the runtime is ready
+       var Module = {
+            onRuntimeInitialized: function () {
+                alert('onRuntimeInitialized');
+            }
+        };
+function search()
+{
+    var key = document.getElementById('rno').value;
+    var res = Module.ccall('view','array',['int'],[key]);
+    if(res[0][0]!=0)
+    {  
+     var myTable =
+      '<fieldset>' +
+        '<legend>Dashboard</legend></br>' +
+        '<table>' +
+            '<tr>' +
+                '<td class="small">Rollno</td>' +
+                '<td class="large">Name</td>' +
+                '<td class="small">Total</td>' +
+                '<td class="small">Grade</td>' +
+            '</tr>' +
+             '<tr>' +
+                '<td class="small">'+res[0][1]+'</td>' +
+                '<td class="large">'+res[0][2]+'</td>' +
+                '<td class="small">'+res[0][3]+'</td>' +
+                '<td class="small">'+res[0][4]+'</td>' +
+            '</tr>' +
+        '</table>' +
+    '</fieldset>'
+  }
+  else
+   {
+     document.write("No Such a Student ");
+   }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<html>
+<meta charset="utf-8">
+<head>
+<title>Student Management System</title>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+</style>
+</head>
+<body>
+    <div class="container" align="center" align="center">
+
+    <h1>Student Management System</h1>
+
+<form action="/action_page.php">
+    <label for="rno"><b>Rollno&emsp;</b></label><input type="text" name="name" id="rollno" placeholder="example : 123"/><br><br>
+    <label for="name"><b>Name &emsp;    </b></label><input type="text" name="name" id="name" placeholder="example : Leninkumar"/><br><br>
+    <label for="sub1"><b>Subject 1</b></label><input type="text" name="sub1" id="mark1" placeholder="example : 100"/><br><br>
+    <label for="sub2"><b>Subject 2</b></label> <input type="text" name="sub2" id="mark2" placeholder="example : 100"/><br><br>
+    <label for="sub3"><b>Subject 3</b></label><input type="text" name="sub3" id="mark3" placeholder="example : 100"/><br><br>
+     &emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="add()">Submit</button>
+</form>
+
+      </div>            
+    
+
+<script language= "javascript" type="text/javascript" src="stu.js">
+// called when the runtime is ready
+       var Module = {
+            onRuntimeInitialized: function () {
+                alert('onRuntimeInitialized');
+            }
+        }; 
+function add() 
+{           
+             var rno = document.getElementById('rollno').value;
+             var n = document.getElementById('name').value;
+             var m1 = document.getElementById('mark1').value;
+             var m2 = document.getElementById('mark2').value;
+             var m3 = document.getElementById('mark3').value;
+             var ns = Module.ccall('store','int', ['int','string','int','int','int'], [rno,n,m1,m2,m3]) ;
+                  if(ns!=0)
+	{
+	document.write("Total Students : "+ns);
+	document.write("Student added Successfully");
+	}       
+}
+</script>
+
+</body>
+</html>

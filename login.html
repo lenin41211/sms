@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Management System</title>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 20%;
+  border-radius: 30%;
+}
+.container {
+  padding: 16px;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Student Login</h2>
+
+<form action="/action_page.php">
+  <div class="imgcontainer">
+    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container" align="center">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" id="uname" placeholder="Enter Username" name="uname" required><br>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" id="pword" placeholder="Enter Password" name="psw" required><br>
+        
+    &emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="valid()">Login</button>
+    </div>
+</form>
+<script language= "javascript" type="text/javascript" src="stu.js">
+ 
+// called when the runtime is ready
+       var Module = {
+            onRuntimeInitialized: function () {
+                alert('onRuntimeInitialized');
+            }
+        };
+function valid()
+{
+    var x = document.getElementById('uname').value;
+     var y = document.getElementById('pword').value
+     var res = Module.ccall('view','array',['string','string'],[x,y]);
+      if(res==1)
+      {
+            window.location="add.html";
+      }
+      else
+      {
+         document.write("invalid username and password");
+       }
+}
+</script>
+</body>
+</html>
