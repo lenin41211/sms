@@ -12,7 +12,7 @@ struct student
   	float per;
  }s[20];
 
-EMSCRIPTEN_KEEPALIVE int*  valid(char* uname[20],char* pword[20])
+EMSCRIPTEN_KEEPALIVE int  valid(const char uname[20],const char pword[20])
 {
    int x;
    if(strcmp(uname,"admin"))
@@ -29,7 +29,7 @@ EMSCRIPTEN_KEEPALIVE int*  valid(char* uname[20],char* pword[20])
   return x;
 } 
 
-EMSCRIPTEN_KEEPALIVE int*  add(int rno,char* name[20],int m1,int m2,int m3)
+EMSCRIPTEN_KEEPALIVE int  add(int rno,const char name[20],int m1,int m2,int m3)
 {
  		s[ns].rollno=rno;
 		strcpy(s[ns].name,name);		
@@ -59,11 +59,11 @@ EMSCRIPTEN_KEEPALIVE int*  add(int rno,char* name[20],int m1,int m2,int m3)
 		{
 			s[ns].grade='F';
 		}		
-	}
-	ns+=1;
+	
+	ns=ns+1;
 	return ns;
    }
-   EMSCRIPTEN_KEEPALIVE char* view(int r)
+   EMSCRIPTEN_KEEPALIVE char view(int r)
    {
 	int rno,i;
 	rno= r;
@@ -78,10 +78,9 @@ EMSCRIPTEN_KEEPALIVE int*  add(int rno,char* name[20],int m1,int m2,int m3)
 		res[0][1]=s[i].rollno+'0';
 		res[0][2]=s[i].name;
 		res[0][3]=s[i].tot+'0';
-		res[0][4]=s[i].grade+'0'
+		res[0][4]=s[i].grade+'0';
 		
 	   }  	
 	}
 	return res;
 }
- 
